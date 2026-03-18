@@ -1,0 +1,134 @@
+import { FileText, Download, ExternalLink } from 'lucide-react';
+
+const ORANGE = '#F28E2E';
+const DARK   = '#373435';
+
+const DOCUMENT = {
+  name:     'Marketing Services Agreement',
+  filename: 'Marketing_Services_Agreement.pdf',
+  path:     '/Marketing_Services_Agreement.pdf',
+  category: 'Agreement',
+  date:     '2025-01-01',
+  parties:  ['ONE Property Holdings', 'Marketing Services Provider'],
+  description: 'Official marketing services agreement governing the scope, terms, and conditions of marketing activities for ONE Property Holdings.',
+};
+
+export default function DocumentsPage() {
+  return (
+    <div className="min-h-screen" style={{ background: '#FAFAFA' }}>
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
+
+        {/* ── Header ── */}
+        <div className="mb-10">
+          <div className="flex items-center gap-2 mb-2">
+            <div className="w-1.5 h-5 rounded-full" style={{ background: ORANGE }} />
+            <span className="text-xs font-semibold tracking-widest uppercase" style={{ color: ORANGE }}>
+              Company
+            </span>
+          </div>
+          <h1 className="text-3xl lg:text-4xl font-black tracking-tight" style={{ color: DARK }}>
+            Documents
+          </h1>
+          <p className="text-gray-500 mt-1.5 text-sm">Official company agreements and legal documents.</p>
+        </div>
+
+        {/* ── Stats ── */}
+        <div className="flex gap-3 mb-10 flex-wrap">
+          {[
+            { label: 'Documents',  value: '1' },
+            { label: 'Category',   value: 'Agreement' },
+            { label: 'Status',     value: 'Active' },
+          ].map(({ label, value }) => (
+            <div key={label} className="flex items-center gap-2.5 bg-white border border-gray-100 rounded-full px-4 py-2 shadow-sm">
+              <span className="text-base font-black" style={{ color: ORANGE }}>{value}</span>
+              <span className="text-xs font-medium text-gray-500">{label}</span>
+            </div>
+          ))}
+        </div>
+
+        {/* ── Document Card ── */}
+        <div className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden mb-6">
+          <div className="px-6 py-4 border-b border-gray-50 flex items-center justify-between">
+            <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide">Agreement Document</p>
+            <span className="text-xs font-bold px-3 py-1 rounded-full" style={{ background: '#FFF7ED', color: ORANGE }}>
+              Active
+            </span>
+          </div>
+
+          <div className="p-6">
+            <div className="flex items-start gap-5">
+              <div className="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0" style={{ background: '#FFF7ED' }}>
+                <FileText size={26} style={{ color: ORANGE }} />
+              </div>
+              <div className="flex-1 min-w-0">
+                <h2 className="text-lg font-black mb-1 leading-tight" style={{ color: DARK }}>{DOCUMENT.name}</h2>
+                <p className="text-sm text-gray-500 mb-4 leading-relaxed">{DOCUMENT.description}</p>
+
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-5">
+                  <div>
+                    <p className="text-xs text-gray-400 mb-0.5">File</p>
+                    <p className="text-xs font-semibold" style={{ color: DARK }}>{DOCUMENT.filename}</p>
+                  </div>
+                  <div>
+                    <p className="text-xs text-gray-400 mb-0.5">Category</p>
+                    <p className="text-xs font-semibold" style={{ color: DARK }}>{DOCUMENT.category}</p>
+                  </div>
+                  <div>
+                    <p className="text-xs text-gray-400 mb-0.5">Date</p>
+                    <p className="text-xs font-semibold" style={{ color: DARK }}>
+                      {new Date(DOCUMENT.date).toLocaleDateString('en-ZA', { day: 'numeric', month: 'long', year: 'numeric' })}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="mb-5">
+                  <p className="text-xs text-gray-400 mb-2">Parties</p>
+                  <div className="flex flex-wrap gap-2">
+                    {DOCUMENT.parties.map(party => (
+                      <span key={party} className="text-xs font-semibold px-3 py-1.5 rounded-xl" style={{ background: '#F5F4F4', color: DARK }}>
+                        {party}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="flex flex-wrap gap-2">
+                  <a
+                    href={DOCUMENT.path}
+                    download={DOCUMENT.filename}
+                    className="flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold text-white transition-opacity hover:opacity-90"
+                    style={{ background: ORANGE }}
+                  >
+                    <Download size={15} />
+                    Download PDF
+                  </a>
+                  <a
+                    href={DOCUMENT.path}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold border border-gray-200 text-gray-600 hover:bg-gray-50 transition-all"
+                  >
+                    <ExternalLink size={15} />
+                    Open in Tab
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* ── PDF Preview — always visible ── */}
+        <div className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+          <div className="px-6 py-4 border-b border-gray-50 flex items-center gap-2">
+            <FileText size={15} style={{ color: ORANGE }} />
+            <p className="text-sm font-semibold" style={{ color: DARK }}>{DOCUMENT.name}</p>
+          </div>
+          <div className="w-full" style={{ height: '80vh' }}>
+            <iframe src={DOCUMENT.path} className="w-full h-full border-0" title={DOCUMENT.name} />
+          </div>
+        </div>
+
+      </div>
+    </div>
+  );
+}
