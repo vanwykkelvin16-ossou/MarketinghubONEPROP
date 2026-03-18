@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { ExternalLink, Monitor, CheckCircle2, AlertCircle, User, ChevronRight, Globe } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { ExternalLink, Monitor, CheckCircle2, AlertCircle, User, ChevronLeft, Globe } from 'lucide-react';
 
 const ORANGE = '#F28E2E';
 const DARK   = '#373435';
@@ -36,12 +37,26 @@ const STEPS = [
   },
 ];
 
+
 export default function MarketingSystem() {
   const [previewVisible, setPreviewVisible] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <div className="min-h-screen" style={{ background: '#FAFAFA' }}>
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
+
+        {/* ── Mobile back button ── */}
+        <div className="flex items-center mb-6 lg:hidden">
+          <button
+            onClick={() => navigate(-1)}
+            className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-sm font-semibold border-2 transition-all"
+            style={{ borderColor: DARK, color: DARK }}
+          >
+            <ChevronLeft size={16} />
+            Back
+          </button>
+        </div>
 
         {/* ── Header ── */}
         <div className="mb-10">
@@ -84,9 +99,8 @@ export default function MarketingSystem() {
             </div>
           </div>
 
-          {/* Website preview / screenshot area */}
-          <div className="mx-6 mb-4 rounded-xl overflow-hidden border border-white/10 bg-black/20">
-            {/* Browser chrome bar */}
+          {/* Website preview */}
+          <div className="mx-6 mb-5 rounded-xl overflow-hidden border border-white/10 bg-black/20">
             <div className="flex items-center gap-2 px-4 py-2.5 bg-black/30 border-b border-white/10">
               <div className="flex gap-1.5">
                 <div className="w-2.5 h-2.5 rounded-full bg-red-500/70" />
@@ -99,13 +113,11 @@ export default function MarketingSystem() {
               <ExternalLink size={12} className="text-white/40" />
             </div>
 
-            {/* Preview toggle */}
             {!previewVisible ? (
               <div
-                className="relative h-52 flex flex-col items-center justify-center gap-3 cursor-pointer group"
+                className="relative h-48 flex flex-col items-center justify-center gap-3 cursor-pointer group"
                 onClick={() => setPreviewVisible(true)}
               >
-                {/* Decorative background grid */}
                 <div className="absolute inset-0 opacity-10"
                   style={{
                     backgroundImage: 'radial-gradient(circle, #F28E2E 1px, transparent 1px)',
@@ -141,18 +153,17 @@ export default function MarketingSystem() {
             )}
           </div>
 
-          {/* CTA */}
+          {/* CTA — clean, full width */}
           <div className="px-6 pb-6">
             <a
               href={DNA_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full flex items-center justify-center gap-2.5 py-3.5 rounded-xl text-sm font-bold text-white transition-opacity hover:opacity-90"
+              className="w-full flex items-center justify-center gap-2 py-4 rounded-xl text-sm font-bold text-white transition-opacity hover:opacity-90"
               style={{ background: ORANGE }}
             >
               <ExternalLink size={16} />
-              Open DNA Supersystems Platform
-              <ChevronRight size={16} />
+              Open DNA Supersystems
             </a>
           </div>
         </div>
@@ -193,7 +204,6 @@ export default function MarketingSystem() {
                   : { background: '#fff', borderColor: '#F3F4F6' }
                 }
               >
-                {/* Step number */}
                 <div
                   className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 text-xs font-black"
                   style={highlight
@@ -203,10 +213,8 @@ export default function MarketingSystem() {
                 >
                   {num}
                 </div>
-
-                {/* Content */}
-                <div className="flex-1">
-                  <div className="flex items-center gap-2 mb-1">
+                <div className="flex-1 min-w-0">
+                  <div className="flex flex-wrap items-center gap-2 mb-1">
                     <Icon size={14} style={{ color: highlight ? ORANGE : '#9CA3AF' }} />
                     <p className="text-sm font-bold" style={{ color: DARK }}>{title}</p>
                     {highlight && (
@@ -225,33 +233,39 @@ export default function MarketingSystem() {
           </div>
         </div>
 
-        {/* ── Zonika Butler reminder ── */}
+        {/* ── Zonika Butler reminder — mobile: stacked, icon centred top, button bottom ── */}
         <div
-          className="rounded-2xl p-5 flex items-start gap-4"
+          className="rounded-2xl p-6 flex flex-col items-center text-center sm:flex-row sm:items-start sm:text-left sm:gap-4"
           style={{ background: DARK }}
         >
+          {/* Icon — centred on mobile */}
           <div
-            className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
+            className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 mb-4 sm:mb-0"
             style={{ background: 'rgba(242,142,46,0.15)' }}
           >
-            <User size={20} style={{ color: ORANGE }} />
+            <User size={22} style={{ color: ORANGE }} />
           </div>
-          <div className="flex-1">
+
+          {/* Text */}
+          <div className="flex-1 mb-5 sm:mb-0">
             <p className="text-white font-bold text-sm mb-1">Your Workspace: Zonika Butler Page</p>
             <p className="text-gray-400 text-xs leading-relaxed">
-              Once logged into DNA Supersystems, navigate directly to the <strong className="text-white">Zonika Butler</strong> page.
+              Once logged into DNA Supersystems, navigate directly to the{' '}
+              <strong className="text-white">Zonika Butler</strong> page.
               This is your dedicated marketing workspace. Work exclusively on this page at all times — do not modify any other accounts or pages.
             </p>
           </div>
+
+          {/* Button — full width on mobile, inline on desktop */}
           <a
             href={DNA_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-xs font-bold text-white flex-shrink-0 transition-opacity hover:opacity-90 self-center"
+            className="w-full sm:w-auto flex items-center justify-center gap-1.5 px-5 py-3 rounded-xl text-sm font-bold text-white transition-opacity hover:opacity-90 flex-shrink-0 sm:self-center sm:ml-4"
             style={{ background: ORANGE }}
           >
             Open Platform
-            <ExternalLink size={12} />
+            <ExternalLink size={13} />
           </a>
         </div>
 

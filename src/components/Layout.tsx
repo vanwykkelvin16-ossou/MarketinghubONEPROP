@@ -1,9 +1,9 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import {
   Building2, LayoutDashboard, FolderOpen, Search, LogOut,
-  Menu, X, ChevronRight, Bell, Megaphone,
+  Menu, X, ChevronRight, ChevronDown, ChevronLeft, Bell, Megaphone,
   Video, Image, Palette, ExternalLink, Monitor,
 } from 'lucide-react';
 // Building2 kept for logo icon only
@@ -32,8 +32,13 @@ export default function Layout({ children }: LayoutProps) {
   const navigate = useNavigate();
   const location = useLocation();
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [marketingExpanded, setMarketingExpanded] = useState(false);
 
   const isMarketingSection = location.pathname.startsWith('/marketing');
+
+  useEffect(() => {
+    if (isMarketingSection) setMarketingExpanded(true);
+  }, [isMarketingSection]);
 
   return (
     <div className="flex h-screen bg-gray-50 overflow-hidden">
@@ -76,8 +81,60 @@ export default function Layout({ children }: LayoutProps) {
         {/* Navigation */}
         <nav className="flex-1 px-4 space-y-1 overflow-y-auto">
           {NAV_ITEMS.map(({ icon: Icon, label, path }) => {
+            const isMarketing = path === '/marketing';
             const active = location.pathname === path ||
-              (path === '/marketing'  && location.pathname.startsWith('/marketing'));
+              (isMarketing && location.pathname.startsWith('/marketing'));
+
+            if (isMarketing) {
+              return (
+                <div key={path}>
+                  <button
+                    onClick={() => {
+                      setMarketingExpanded(prev => !prev);
+                      navigate(path);
+                      setSidebarOpen(false);
+                    }}
+                    className={`w-full flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-medium transition-all duration-150 ${
+                      active ? 'text-white' : 'text-gray-500 hover:text-gray-300 hover:bg-gray-900'
+                    }`}
+                    style={active ? {
+                      background: 'linear-gradient(135deg, rgba(249,115,22,0.15), rgba(234,88,12,0.1))',
+                      border: '1px solid rgba(249,115,22,0.2)',
+                    } : {}}
+                  >
+                    <Icon size={18} className={active ? 'text-orange-400' : ''} />
+                    <span>{label}</span>
+                    <ChevronDown
+                      size={14}
+                      className={`ml-auto transition-transform duration-200 ${active ? 'text-orange-400 opacity-60' : 'text-gray-600'} ${marketingExpanded ? 'rotate-180' : ''}`}
+                    />
+                  </button>
+
+                  {/* Marketing sub-items */}
+                  {marketingExpanded && (
+                    <div className="ml-4 mt-1 space-y-0.5 border-l border-gray-800 pl-3">
+                      {MARKETING_SUB_NAV.map(({ icon: SubIcon, label: subLabel, path: subPath }) => {
+                        const subActive = location.pathname === subPath;
+                        return (
+                          <button
+                            key={subPath}
+                            onClick={() => { navigate(subPath); setSidebarOpen(false); }}
+                            className={`w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-medium transition-all duration-150 ${
+                              subActive ? 'text-orange-400 bg-orange-500/10' : 'text-gray-500 hover:text-gray-300 hover:bg-gray-900'
+                            }`}
+                          >
+                            <SubIcon size={14} />
+                            <span>{subLabel}</span>
+                            {subActive && <div className="ml-auto w-1.5 h-1.5 rounded-full bg-orange-400" />}
+                          </button>
+                        );
+                      })}
+                    </div>
+                  )}
+                </div>
+              );
+            }
+
             return (
               <button
                 key={path}
@@ -150,6 +207,20 @@ export default function Layout({ children }: LayoutProps) {
             </div>
           </div>
         </header>
+
+        {/* Mobile back button for marketing pages */}
+        {isMarketingSection && (
+          <div className="lg:hidden flex items-center px-4 py-3 bg-white border-b border-gray-100">
+            <button
+              onClick={() => navigate(-1)}
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-sm font-semibold border-2 transition-all"
+              style={{ borderColor: '#373435', color: '#373435' }}
+            >
+              <ChevronLeft size={15} />
+              Back
+            </button>
+          </div>
+        )}
 
         {/* Marketing sub-nav — desktop horizontal strip */}
         {isMarketingSection && (
