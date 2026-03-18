@@ -34,7 +34,7 @@ export default function Layout({ children }: LayoutProps) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [marketingExpanded, setMarketingExpanded] = useState(false);
 
-  const isMarketingSection = location.pathname.startsWith('/marketing');
+  const isMarketingSection = location.pathname === '/marketing' || location.pathname.startsWith('/marketing/');
 
   useEffect(() => {
     if (isMarketingSection) setMarketingExpanded(true);
@@ -83,7 +83,7 @@ export default function Layout({ children }: LayoutProps) {
           {NAV_ITEMS.map(({ icon: Icon, label, path }) => {
             const isMarketing = path === '/marketing';
             const active = location.pathname === path ||
-              (isMarketing && location.pathname.startsWith('/marketing'));
+              (isMarketing && isMarketingSection);
 
             if (isMarketing) {
               return (
@@ -91,8 +91,6 @@ export default function Layout({ children }: LayoutProps) {
                   <button
                     onClick={() => {
                       setMarketingExpanded(prev => !prev);
-                      navigate(path);
-                      setSidebarOpen(false);
                     }}
                     className={`w-full flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-medium transition-all duration-150 ${
                       active ? 'text-white' : 'text-gray-500 hover:text-gray-300 hover:bg-gray-900'
