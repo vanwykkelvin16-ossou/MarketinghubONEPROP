@@ -9,7 +9,7 @@ const DOCUMENT = {
   path:     '/Marketing_Services_Agreement.pdf',
   category: 'Agreement',
   date:     '2025-01-01',
-  parties:  ['ONE Property Holdings', 'Marketing Services Provider'],
+  parties:  ['SA Broking Marketing', 'Zonika Butler'],
   description: 'Official marketing services agreement governing the scope, terms, and conditions of marketing activities for ONE Property Holdings.',
 };
 
@@ -48,6 +48,8 @@ export default function DocumentsPage() {
 
         {/* ── Document Card ── */}
         <div className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden mb-6">
+
+          {/* Card header */}
           <div className="px-6 py-4 border-b border-gray-50 flex items-center justify-between">
             <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide">Agreement Document</p>
             <span className="text-xs font-bold px-3 py-1 rounded-full" style={{ background: '#FFF7ED', color: ORANGE }}>
@@ -56,63 +58,53 @@ export default function DocumentsPage() {
           </div>
 
           <div className="p-6">
-            <div className="flex items-start gap-5">
-              <div className="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0" style={{ background: '#FFF7ED' }}>
-                <FileText size={26} style={{ color: ORANGE }} />
+            {/* Icon + title row */}
+            <div className="flex items-center gap-4 mb-5">
+              <div className="w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0" style={{ background: '#FFF7ED' }}>
+                <FileText size={22} style={{ color: ORANGE }} />
               </div>
-              <div className="flex-1 min-w-0">
-                <h2 className="text-lg font-black mb-1 leading-tight" style={{ color: DARK }}>{DOCUMENT.name}</h2>
-                <p className="text-sm text-gray-500 mb-4 leading-relaxed">{DOCUMENT.description}</p>
-
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-5">
-                  <div>
-                    <p className="text-xs text-gray-400 mb-0.5">File</p>
-                    <p className="text-xs font-semibold" style={{ color: DARK }}>{DOCUMENT.filename}</p>
-                  </div>
-                  <div>
-                    <p className="text-xs text-gray-400 mb-0.5">Category</p>
-                    <p className="text-xs font-semibold" style={{ color: DARK }}>{DOCUMENT.category}</p>
-                  </div>
-                  <div>
-                    <p className="text-xs text-gray-400 mb-0.5">Date</p>
-                    <p className="text-xs font-semibold" style={{ color: DARK }}>
-                      {new Date(DOCUMENT.date).toLocaleDateString('en-ZA', { day: 'numeric', month: 'long', year: 'numeric' })}
-                    </p>
-                  </div>
-                </div>
-
-                <div className="mb-5">
-                  <p className="text-xs text-gray-400 mb-2">Parties</p>
-                  <div className="flex flex-wrap gap-2">
-                    {DOCUMENT.parties.map(party => (
-                      <span key={party} className="text-xs font-semibold px-3 py-1.5 rounded-xl" style={{ background: '#F5F4F4', color: DARK }}>
-                        {party}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="flex flex-wrap gap-2">
-                  <a
-                    href={DOCUMENT.path}
-                    download={DOCUMENT.filename}
-                    className="flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold text-white transition-opacity hover:opacity-90"
-                    style={{ background: ORANGE }}
-                  >
-                    <Download size={15} />
-                    Download PDF
-                  </a>
-                  <a
-                    href={DOCUMENT.path}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold border border-gray-200 text-gray-600 hover:bg-gray-50 transition-all"
-                  >
-                    <ExternalLink size={15} />
-                    Open in Tab
-                  </a>
-                </div>
+              <div className="min-w-0">
+                <h2 className="text-base font-black leading-snug" style={{ color: DARK }}>{DOCUMENT.name}</h2>
+                <p className="text-xs text-gray-400 mt-0.5">{DOCUMENT.category} · {new Date(DOCUMENT.date).toLocaleDateString('en-ZA', { day: 'numeric', month: 'long', year: 'numeric' })}</p>
               </div>
+            </div>
+
+            {/* Description */}
+            <p className="text-sm text-gray-500 leading-relaxed mb-5">{DOCUMENT.description}</p>
+
+            {/* Parties */}
+            <div className="mb-6">
+              <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-2">Parties</p>
+              <div className="flex flex-wrap gap-2">
+                {DOCUMENT.parties.map(party => (
+                  <span key={party} className="text-xs font-semibold px-3 py-1.5 rounded-xl" style={{ background: '#F5F4F4', color: DARK }}>
+                    {party}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Buttons — stacked full width */}
+            <div className="flex flex-col gap-3">
+              <a
+                href={DOCUMENT.path}
+                download={DOCUMENT.filename}
+                className="w-full flex items-center justify-center gap-2 py-3 rounded-xl text-sm font-bold text-white transition-opacity hover:opacity-90"
+                style={{ background: ORANGE }}
+              >
+                <Download size={15} />
+                Download PDF
+              </a>
+              <a
+                href={DOCUMENT.path}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full flex items-center justify-center gap-2 py-3 rounded-xl text-sm font-bold border-2 transition-all hover:opacity-80"
+                style={{ borderColor: DARK, color: DARK }}
+              >
+                <ExternalLink size={15} />
+                Open in Tab
+              </a>
             </div>
           </div>
         </div>

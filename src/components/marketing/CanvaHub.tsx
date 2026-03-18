@@ -44,38 +44,38 @@ export default function CanvaHub() {
             </span>
           </div>
 
-          {/* Link row */}
+          {/* Link card */}
           <div className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
-            <div className="flex items-center gap-4 px-5 py-4 group">
-              {/* Icon */}
-              <div className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0"
-                style={{ background: '#FDF4FF' }}>
-                <Share2 size={15} style={{ color: '#9333EA' }} />
-              </div>
-
-              {/* Info */}
-              <div className="flex-1 min-w-0">
-                <p className="text-sm font-semibold truncate" style={{ color: DARK }}>
-                  Social Media Marketing Posters — Instagram, Facebook &amp; LinkedIn
-                </p>
-                <div className="flex items-center gap-2 mt-0.5">
-                  <span className="text-xs font-medium px-2 py-0.5 rounded-full"
-                    style={{ background: '#FDF4FF', color: '#9333EA' }}>
-                    Social
-                  </span>
-                  <span className="text-xs text-gray-400">All Properties</span>
+            <div className="p-5">
+              {/* Icon + title */}
+              <div className="flex items-start gap-3 mb-4">
+                <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
+                  style={{ background: '#FDF4FF' }}>
+                  <Share2 size={18} style={{ color: '#9333EA' }} />
+                </div>
+                <div className="flex-1 min-w-0 pt-0.5">
+                  <p className="text-sm font-bold leading-snug" style={{ color: DARK }}>
+                    Social Media Marketing Posters — Instagram, Facebook &amp; LinkedIn
+                  </p>
+                  <div className="flex items-center gap-2 mt-1.5">
+                    <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full"
+                      style={{ background: '#FDF4FF', color: '#9333EA' }}>
+                      Social
+                    </span>
+                    <span className="text-xs text-gray-400">All Properties</span>
+                  </div>
                 </div>
               </div>
 
-              {/* CTA */}
+              {/* CTA — full width below content */}
               <a
                 href={CANVA_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-semibold text-white flex-shrink-0 transition-opacity hover:opacity-90"
+                className="w-full flex items-center justify-center gap-2 py-3 rounded-xl text-sm font-bold text-white transition-opacity hover:opacity-90"
                 style={{ background: ORANGE }}
               >
-                <ExternalLink size={12} />
+                <ExternalLink size={14} />
                 Open in Canva
               </a>
             </div>
