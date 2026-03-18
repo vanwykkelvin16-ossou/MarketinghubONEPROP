@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { Video, Image, Palette, ExternalLink, ArrowRight, Link2 } from 'lucide-react';
-import { VIDEOS, POSTERS, CANVA_LINKS } from '../../data/marketing';
+import { POSTERS } from '../../data/marketing';
 
 const ORANGE = '#F28E2E';
 const DARK   = '#373435';

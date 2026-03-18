@@ -14,13 +14,6 @@ const TYPE_LABELS: Record<MarketingPoster['type'], string> = {
   digital:   'Digital Ad',
 };
 
-const TYPE_COLORS: Record<MarketingPoster['type'], { bg: string; text: string }> = {
-  campaign:  { bg: '#FFF7ED', text: ORANGE },
-  brochure:  { bg: '#F0FDF4', text: '#16A34A' },
-  social:    { bg: '#FDF4FF', text: '#9333EA' },
-  billboard: { bg: '#EFF6FF', text: '#2563EB' },
-  digital:   { bg: '#FFF1F2', text: '#E11D48' },
-};
 
 const POSTER_TYPES: Array<MarketingPoster['type'] | 'all'> = ['all', 'campaign', 'brochure', 'social', 'billboard', 'digital'];
 

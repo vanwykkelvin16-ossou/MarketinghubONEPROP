@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { VIDEOS, POSTERS, CANVA_LINKS } from '../data/marketing';
+import { POSTERS } from '../data/marketing';
 import {
   Video, Image, ExternalLink, Megaphone,
   ArrowRight, FileText, Palette,
