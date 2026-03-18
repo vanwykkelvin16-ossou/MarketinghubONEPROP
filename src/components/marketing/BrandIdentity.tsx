@@ -35,16 +35,16 @@ export default function BrandIdentity() {
         </div>
 
         {/* ── Tab bar ── */}
-        <div className="flex gap-1 bg-white border border-gray-100 rounded-2xl p-1.5 shadow-sm mb-8 w-fit">
+        <div className="flex flex-col sm:flex-row gap-2 sm:gap-1 mb-8 sm:bg-white sm:border sm:border-gray-100 sm:rounded-2xl sm:p-1.5 sm:shadow-sm sm:w-fit">
           {TABS.map(({ key, label, icon: Icon }) => (
             <button
               key={key}
               onClick={() => setActiveTab(key)}
-              className="flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold transition-all"
+              className="flex items-center gap-2.5 px-5 py-3 sm:py-2.5 rounded-xl text-sm font-semibold transition-all w-full sm:w-auto"
               style={
                 activeTab === key
                   ? { background: DARK, color: '#fff' }
-                  : { color: '#9CA3AF' }
+                  : { background: '#fff', color: '#9CA3AF', border: '1px solid #F3F4F6' }
               }
             >
               <Icon size={15} />

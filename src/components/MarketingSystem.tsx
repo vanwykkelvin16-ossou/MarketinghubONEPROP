@@ -170,23 +170,23 @@ export default function MarketingSystem() {
 
         {/* ── DNA 2.0 Callout ── */}
         <div
-          className="rounded-2xl p-5 mb-8 flex items-start gap-4"
-          style={{ background: '#FFF7ED', border: '2px solid rgba(242,142,46,0.3)' }}
+          className="rounded-2xl overflow-hidden mb-8"
+          style={{ border: '1.5px solid rgba(242,142,46,0.25)' }}
         >
-          <div
-            className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
-            style={{ background: ORANGE }}
-          >
-            <AlertCircle size={20} className="text-white" />
+          {/* Top accent bar */}
+          <div className="px-5 py-3 flex items-center gap-2.5" style={{ background: ORANGE }}>
+            <AlertCircle size={15} className="text-white flex-shrink-0" />
+            <p className="text-white text-xs font-black tracking-wide uppercase">Important — Read Before Logging In</p>
           </div>
-          <div>
-            <p className="font-black text-sm mb-1" style={{ color: DARK }}>
+          {/* Body */}
+          <div className="px-5 py-4" style={{ background: '#FFF7ED' }}>
+            <p className="text-sm font-black mb-1.5" style={{ color: DARK }}>
               Always Select "Login to DNA 2.0 — New Version Software"
             </p>
             <p className="text-xs text-gray-600 leading-relaxed">
-              When the login modal appears on the DNA Supersystems site, you will see two options.
-              <strong className="font-bold" style={{ color: DARK }}> Always choose the dark button — "Login to DNA 2.0 — New Version Software".</strong>
-              {' '}Never use the blue "Login to DNA 1.0" (1st generation) option.
+              When the login modal appears, you will see two options.{' '}
+              <strong style={{ color: DARK }}>Always choose the dark button — "Login to DNA 2.0 — New Version Software".</strong>{' '}
+              Never use the blue "Login to DNA 1.0" (1st generation) option.
             </p>
           </div>
         </div>
