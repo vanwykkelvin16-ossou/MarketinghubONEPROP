@@ -115,7 +115,7 @@ export default function DocumentsPage() {
             <FileText size={15} style={{ color: ORANGE }} />
             <p className="text-sm font-semibold" style={{ color: DARK }}>{DOCUMENT.name}</p>
           </div>
-          <div className="w-full" style={{ height: '80vh' }}>
+          <div className="w-full" style={{ height: '1400px' }}>
             <iframe src={DOCUMENT.path} className="w-full h-full border-0" title={DOCUMENT.name} />
           </div>
         </div>
