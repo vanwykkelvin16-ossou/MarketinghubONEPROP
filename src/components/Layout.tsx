@@ -245,7 +245,7 @@ export default function Layout({ children }: LayoutProps) {
 
         {/* Page content */}
         <main className="flex-1 overflow-y-auto">
-          <div className="page-enter">
+          <div className={`page-enter${isMarketingSection ? ' pb-24 lg:pb-0' : ''}`}>
             {children}
           </div>
 
