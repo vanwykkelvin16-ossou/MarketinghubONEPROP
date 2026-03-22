@@ -5,7 +5,6 @@ import DocumentsPage from './components/DocumentsPage';
 import MarketingSystem from './components/MarketingSystem';
 import MarketingHub from './components/marketing/MarketingHub';
 import MarketingVideos from './components/marketing/MarketingVideos';
-import MarketingPosters from './components/marketing/MarketingPosters';
 import CanvaHub from './components/marketing/CanvaHub';
 import BrandIdentity from './components/marketing/BrandIdentity';
 
@@ -19,7 +18,6 @@ export default function App() {
           <Route path="/documents"           element={<DocumentsPage />} />
           <Route path="/marketing"           element={<MarketingHub />} />
           <Route path="/marketing/videos"    element={<MarketingVideos />} />
-          <Route path="/marketing/posters"   element={<MarketingPosters />} />
           <Route path="/marketing/canva"     element={<CanvaHub />} />
           <Route path="/marketing/brand"     element={<BrandIdentity />} />
           <Route path="*"                    element={<Navigate to="/" replace />} />
