@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext';
 import {
-  Building2, LayoutDashboard, FolderOpen, Search, LogOut,
+  Building2, LayoutDashboard, FolderOpen, Search,
   Menu, X, ChevronRight, ChevronDown, ChevronLeft, Bell, Megaphone,
   Video, Image, Palette, ExternalLink, Monitor,
 } from 'lucide-react';
@@ -28,7 +27,6 @@ const MARKETING_SUB_NAV = [
 ];
 
 export default function Layout({ children }: LayoutProps) {
-  const { logout } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -169,13 +167,6 @@ export default function Layout({ children }: LayoutProps) {
               <div className="ml-auto w-2 h-2 rounded-full bg-green-500" />
             </div>
           </div>
-          <button
-            onClick={logout}
-            className="w-full flex items-center gap-3 px-4 py-3 rounded-2xl text-gray-500 hover:text-red-400 hover:bg-red-500/10 text-sm font-medium transition-all"
-          >
-            <LogOut size={16} />
-            <span>Sign Out</span>
-          </button>
         </div>
       </aside>
 
