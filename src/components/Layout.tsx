@@ -13,7 +13,7 @@ interface LayoutProps {
 
 const NAV_ITEMS = [
   { icon: LayoutDashboard, label: 'Dashboard',        path: '/' },
-  { icon: Monitor,         label: 'SA Broking Marketing', path: '/marketing-system' },
+  { icon: Monitor,         label: 'Marketing System', path: '/marketing-system' },
   { icon: FolderOpen,      label: 'Documents',        path: '/documents' },
   { icon: Megaphone,       label: 'Marketing',        path: '/marketing' },
 ];

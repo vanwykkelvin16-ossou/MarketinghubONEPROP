@@ -29,8 +29,8 @@ const STEPS = [
   },
   {
     num: '04',
-    title: 'Go to the Zonika Butler Page',
-    body: 'Once logged in, go directly to the Zonika Butler page. Work exclusively on this page at all times.',
+    title: 'Go to the SA Broking Marketing Page',
+    body: 'Once logged in, go directly to the SA Broking Marketing page. Work exclusively on this page at all times.',
     icon: CheckCircle2,
     highlight: false,
   },
@@ -64,7 +64,7 @@ export default function MarketingSystem() {
             </span>
           </div>
           <h1 className="text-3xl lg:text-4xl font-black tracking-tight" style={{ color: DARK }}>
-            SA Broking Marketing
+            Marketing System
           </h1>
           <p className="text-gray-400 mt-1.5 text-sm">
             Follow the steps below to access and use the DNA Supersystems platform.
@@ -147,12 +147,12 @@ export default function MarketingSystem() {
             </div>
             <div>
               <p className="text-white font-bold text-sm">Your Workspace</p>
-              <p className="text-gray-400 text-xs">Zonika Butler Page</p>
+              <p className="text-gray-400 text-xs">SA Broking Marketing Page</p>
             </div>
           </div>
           <p className="text-gray-400 text-xs leading-relaxed mb-5">
             Once logged into DNA Supersystems, navigate directly to the{' '}
-            <strong className="text-white">Zonika Butler</strong> page.
+            <strong className="text-white">SA Broking Marketing</strong> page.
             Work exclusively on this page — do not modify any other accounts or pages.
           </p>
           <a
