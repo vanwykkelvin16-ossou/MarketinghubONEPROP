@@ -64,7 +64,7 @@ export default function MarketingSystem() {
             </span>
           </div>
           <h1 className="text-3xl lg:text-4xl font-black tracking-tight" style={{ color: DARK }}>
-            Marketing System
+            SA Broking Marketing
           </h1>
           <p className="text-gray-400 mt-1.5 text-sm">
             Follow the steps below to access and use the DNA Supersystems platform.
@@ -96,24 +96,6 @@ export default function MarketingSystem() {
             <ExternalLink size={15} />
             Open DNA Supersystems
           </a>
-        </div>
-
-        {/* Important notice */}
-        <div className="rounded-2xl overflow-hidden mb-8" style={{ border: '1.5px solid rgba(242,142,46,0.25)' }}>
-          <div className="px-5 py-3 flex items-center gap-2" style={{ background: ORANGE }}>
-            <AlertCircle size={14} className="text-white flex-shrink-0" />
-            <p className="text-white text-xs font-black uppercase tracking-wide">Important — Read Before Logging In</p>
-          </div>
-          <div className="px-5 py-4" style={{ background: '#FFF7ED' }}>
-            <p className="text-sm font-black mb-1" style={{ color: DARK }}>
-              Always Select "Login to DNA 2.0 — New Version Software"
-            </p>
-            <p className="text-xs text-gray-600 leading-relaxed">
-              When the login modal appears, always choose the dark button —{' '}
-              <strong style={{ color: DARK }}>"Login to DNA 2.0 — New Version Software"</strong>.
-              Never use the blue "Login to DNA 1.0" option.
-            </p>
-          </div>
         </div>
 
         {/* Steps */}
