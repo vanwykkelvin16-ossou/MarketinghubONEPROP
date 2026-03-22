@@ -1,6 +1,5 @@
-import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ExternalLink, Monitor, CheckCircle2, AlertCircle, User, ChevronLeft, Globe } from 'lucide-react';
+import { ExternalLink, Monitor, AlertCircle, User, ChevronLeft, Globe, CheckCircle2 } from 'lucide-react';
 
 const ORANGE = '#F28E2E';
 const DARK   = '#373435';
@@ -10,55 +9,53 @@ const STEPS = [
   {
     num: '01',
     title: 'Open DNA Supersystems',
-    body: 'Click the button below to open the DNA Supersystems platform in a new tab.',
-    highlight: false,
+    body: 'Click the button below to open the platform in a new tab.',
     icon: Globe,
+    highlight: false,
   },
   {
     num: '02',
-    title: 'Click LOGIN — Always Choose DNA 2.0',
-    body: 'When the login modal appears, you will see two options. ALWAYS select "Login to DNA 2.0 — New Version Software". Never use the 1st generation option.',
-    highlight: true,
+    title: 'Always Choose DNA 2.0',
+    body: 'When the login modal appears, always select "Login to DNA 2.0 — New Version Software". Never use the 1.0 option.',
     icon: AlertCircle,
+    highlight: true,
   },
   {
     num: '03',
     title: 'Login with Your Credentials',
-    body: 'Use the login credentials provided by Kelvin van Wyk to access the platform securely.',
-    highlight: false,
+    body: 'Use the login credentials provided by Kelvin van Wyk to access the platform.',
     icon: User,
+    highlight: false,
   },
   {
     num: '04',
-    title: 'Navigate to Zonika Butler Page',
-    body: 'Once logged in, go directly to the Zonika Butler page. This is your dedicated workspace — work ONLY on this page at all times.',
-    highlight: false,
+    title: 'Go to the Zonika Butler Page',
+    body: 'Once logged in, go directly to the Zonika Butler page. Work exclusively on this page at all times.',
     icon: CheckCircle2,
+    highlight: false,
   },
 ];
 
-
 export default function MarketingSystem() {
-  const [previewVisible, setPreviewVisible] = useState(false);
   const navigate = useNavigate();
 
   return (
     <div className="min-h-screen" style={{ background: '#FAFAFA' }}>
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
+      <div className="max-w-2xl mx-auto px-4 sm:px-6 py-8 lg:py-12">
 
-        {/* ── Mobile back button ── */}
-        <div className="flex items-center mb-6 lg:hidden">
+        {/* Mobile back */}
+        <div className="mb-6 lg:hidden">
           <button
             onClick={() => navigate(-1)}
             className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-sm font-semibold border-2 transition-all"
             style={{ borderColor: DARK, color: DARK }}
           >
-            <ChevronLeft size={16} />
+            <ChevronLeft size={15} />
             Back
           </button>
         </div>
 
-        {/* ── Header ── */}
+        {/* Header */}
         <div className="mb-10">
           <div className="flex items-center gap-2 mb-2">
             <div className="w-1.5 h-5 rounded-full" style={{ background: ORANGE }} />
@@ -69,143 +66,73 @@ export default function MarketingSystem() {
           <h1 className="text-3xl lg:text-4xl font-black tracking-tight" style={{ color: DARK }}>
             Marketing System
           </h1>
-          <p className="text-gray-500 mt-1.5 text-sm max-w-xl">
-            Access the DNA Supersystems platform to manage all marketing activities. Follow the steps below carefully.
+          <p className="text-gray-400 mt-1.5 text-sm">
+            Follow the steps below to access and use the DNA Supersystems platform.
           </p>
         </div>
 
-        {/* ── DNA Platform Card ── */}
-        <div
-          className="rounded-2xl overflow-hidden mb-8 border"
-          style={{ borderColor: 'rgba(242,142,46,0.2)', background: DARK }}
-        >
-          {/* Top bar */}
-          <div className="px-6 py-5 flex items-center justify-between">
-            <div className="flex items-center gap-4">
-              <div
-                className="w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0"
-                style={{ background: 'rgba(242,142,46,0.15)' }}
-              >
-                <Monitor size={22} style={{ color: ORANGE }} />
-              </div>
-              <div>
-                <p className="text-white font-black text-lg leading-tight">DNA Supersystems</p>
-                <p className="text-gray-400 text-xs mt-0.5">dnasupersystems.com · Marketing Platform</p>
-              </div>
+        {/* DNA Platform card */}
+        <div className="rounded-2xl p-6 mb-6" style={{ background: DARK }}>
+          <div className="flex items-center gap-4 mb-6">
+            <div className="w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0" style={{ background: 'rgba(242,142,46,0.15)' }}>
+              <Monitor size={22} style={{ color: ORANGE }} />
             </div>
-            <div className="flex items-center gap-2">
+            <div className="flex-1 min-w-0">
+              <p className="text-white font-black text-base leading-tight">DNA Supersystems</p>
+              <p className="text-gray-400 text-xs mt-0.5">dnasupersystems.com · Marketing Platform</p>
+            </div>
+            <div className="flex items-center gap-1.5 flex-shrink-0">
               <div className="w-2 h-2 rounded-full bg-green-400" />
               <span className="text-xs text-green-400 font-semibold">Live</span>
             </div>
           </div>
-
-          {/* Website preview */}
-          <div className="mx-6 mb-5 rounded-xl overflow-hidden border border-white/10 bg-black/20">
-            <div className="flex items-center gap-2 px-4 py-2.5 bg-black/30 border-b border-white/10">
-              <div className="flex gap-1.5">
-                <div className="w-2.5 h-2.5 rounded-full bg-red-500/70" />
-                <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/70" />
-                <div className="w-2.5 h-2.5 rounded-full bg-green-500/70" />
-              </div>
-              <div className="flex-1 mx-3 bg-white/10 rounded-md px-3 py-1">
-                <span className="text-white/50 text-xs font-mono">dnasupersystems.com</span>
-              </div>
-              <ExternalLink size={12} className="text-white/40" />
-            </div>
-
-            {!previewVisible ? (
-              <div
-                className="relative h-48 flex flex-col items-center justify-center gap-3 cursor-pointer group"
-                onClick={() => setPreviewVisible(true)}
-              >
-                <div className="absolute inset-0 opacity-10"
-                  style={{
-                    backgroundImage: 'radial-gradient(circle, #F28E2E 1px, transparent 1px)',
-                    backgroundSize: '24px 24px',
-                  }}
-                />
-                <div
-                  className="w-14 h-14 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform"
-                  style={{ background: 'rgba(242,142,46,0.2)' }}
-                >
-                  <Globe size={24} style={{ color: ORANGE }} />
-                </div>
-                <div className="text-center">
-                  <p className="text-white font-bold text-sm">Click to load live preview</p>
-                  <p className="text-gray-400 text-xs mt-0.5">Opens dnasupersystems.com inline</p>
-                </div>
-              </div>
-            ) : (
-              <div className="relative" style={{ height: '480px' }}>
-                <iframe
-                  src={DNA_URL}
-                  className="w-full h-full border-0"
-                  title="DNA Supersystems"
-                  sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
-                />
-                <button
-                  onClick={() => setPreviewVisible(false)}
-                  className="absolute top-2 right-2 bg-black/60 text-white text-xs px-2.5 py-1 rounded-lg hover:bg-black/80 transition-colors"
-                >
-                  Close preview
-                </button>
-              </div>
-            )}
-          </div>
-
-          {/* CTA — clean, full width */}
-          <div className="px-6 pb-6">
-            <a
-              href={DNA_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full flex items-center justify-center gap-2 py-4 rounded-xl text-sm font-bold text-white transition-opacity hover:opacity-90"
-              style={{ background: ORANGE }}
-            >
-              <ExternalLink size={16} />
-              Open DNA Supersystems
-            </a>
-          </div>
+          <a
+            href={DNA_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl text-sm font-bold text-white transition-opacity hover:opacity-90"
+            style={{ background: ORANGE }}
+          >
+            <ExternalLink size={15} />
+            Open DNA Supersystems
+          </a>
         </div>
 
-        {/* ── DNA 2.0 Callout ── */}
-        <div
-          className="rounded-2xl overflow-hidden mb-8"
-          style={{ border: '1.5px solid rgba(242,142,46,0.25)' }}
-        >
-          {/* Top accent bar */}
-          <div className="px-5 py-3 flex items-center gap-2.5" style={{ background: ORANGE }}>
-            <AlertCircle size={15} className="text-white flex-shrink-0" />
-            <p className="text-white text-xs font-black tracking-wide uppercase">Important — Read Before Logging In</p>
+        {/* Important notice */}
+        <div className="rounded-2xl overflow-hidden mb-8" style={{ border: '1.5px solid rgba(242,142,46,0.25)' }}>
+          <div className="px-5 py-3 flex items-center gap-2" style={{ background: ORANGE }}>
+            <AlertCircle size={14} className="text-white flex-shrink-0" />
+            <p className="text-white text-xs font-black uppercase tracking-wide">Important — Read Before Logging In</p>
           </div>
-          {/* Body */}
           <div className="px-5 py-4" style={{ background: '#FFF7ED' }}>
-            <p className="text-sm font-black mb-1.5" style={{ color: DARK }}>
+            <p className="text-sm font-black mb-1" style={{ color: DARK }}>
               Always Select "Login to DNA 2.0 — New Version Software"
             </p>
             <p className="text-xs text-gray-600 leading-relaxed">
-              When the login modal appears, you will see two options.{' '}
-              <strong style={{ color: DARK }}>Always choose the dark button — "Login to DNA 2.0 — New Version Software".</strong>{' '}
-              Never use the blue "Login to DNA 1.0" (1st generation) option.
+              When the login modal appears, always choose the dark button —{' '}
+              <strong style={{ color: DARK }}>"Login to DNA 2.0 — New Version Software"</strong>.
+              Never use the blue "Login to DNA 1.0" option.
             </p>
           </div>
         </div>
 
-        {/* ── Step by step instructions ── */}
+        {/* Steps */}
         <div className="mb-8">
-          <h2 className="text-base font-bold mb-5" style={{ color: DARK }}>Step-by-Step Instructions</h2>
+          <h2 className="text-sm font-bold uppercase tracking-widest mb-5" style={{ color: DARK }}>
+            Step-by-Step
+          </h2>
           <div className="space-y-3">
             {STEPS.map(({ num, title, body, highlight, icon: Icon }) => (
               <div
                 key={num}
-                className="flex items-start gap-4 p-5 rounded-2xl border transition-all"
+                className="flex items-start gap-4 p-5 rounded-2xl border"
                 style={highlight
-                  ? { background: '#FFF7ED', borderColor: 'rgba(242,142,46,0.3)' }
+                  ? { background: '#FFF7ED', borderColor: 'rgba(242,142,46,0.25)' }
                   : { background: '#fff', borderColor: '#F3F4F6' }
                 }
               >
                 <div
-                  className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 text-xs font-black"
+                  className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0 text-xs font-black"
                   style={highlight
                     ? { background: ORANGE, color: '#fff' }
                     : { background: '#F5F4F4', color: DARK }
@@ -213,59 +140,48 @@ export default function MarketingSystem() {
                 >
                   {num}
                 </div>
-                <div className="flex-1 min-w-0">
+                <div className="flex-1 min-w-0 pt-0.5">
                   <div className="flex flex-wrap items-center gap-2 mb-1">
-                    <Icon size={14} style={{ color: highlight ? ORANGE : '#9CA3AF' }} />
+                    <Icon size={13} style={{ color: highlight ? ORANGE : '#9CA3AF' }} />
                     <p className="text-sm font-bold" style={{ color: DARK }}>{title}</p>
                     {highlight && (
-                      <span
-                        className="text-xs font-bold px-2 py-0.5 rounded-full"
-                        style={{ background: ORANGE, color: '#fff' }}
-                      >
+                      <span className="text-[10px] font-bold px-2 py-0.5 rounded-full" style={{ background: ORANGE, color: '#fff' }}>
                         Important
                       </span>
                     )}
                   </div>
-                  <p className="text-xs text-gray-500 leading-relaxed">{body}</p>
+                  <p className="text-xs text-gray-400 leading-relaxed">{body}</p>
                 </div>
               </div>
             ))}
           </div>
         </div>
 
-        {/* ── Zonika Butler reminder — mobile: stacked, icon centred top, button bottom ── */}
-        <div
-          className="rounded-2xl p-6 flex flex-col items-center text-center sm:flex-row sm:items-start sm:text-left sm:gap-4"
-          style={{ background: DARK }}
-        >
-          {/* Icon — centred on mobile */}
-          <div
-            className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 mb-4 sm:mb-0"
-            style={{ background: 'rgba(242,142,46,0.15)' }}
-          >
-            <User size={22} style={{ color: ORANGE }} />
+        {/* Zonika Butler workspace */}
+        <div className="rounded-2xl p-6" style={{ background: DARK }}>
+          <div className="flex items-center gap-3 mb-4">
+            <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: 'rgba(242,142,46,0.15)' }}>
+              <User size={18} style={{ color: ORANGE }} />
+            </div>
+            <div>
+              <p className="text-white font-bold text-sm">Your Workspace</p>
+              <p className="text-gray-400 text-xs">Zonika Butler Page</p>
+            </div>
           </div>
-
-          {/* Text */}
-          <div className="flex-1 mb-5 sm:mb-0">
-            <p className="text-white font-bold text-sm mb-1">Your Workspace: Zonika Butler Page</p>
-            <p className="text-gray-400 text-xs leading-relaxed">
-              Once logged into DNA Supersystems, navigate directly to the{' '}
-              <strong className="text-white">Zonika Butler</strong> page.
-              This is your dedicated marketing workspace. Work exclusively on this page at all times — do not modify any other accounts or pages.
-            </p>
-          </div>
-
-          {/* Button — full width on mobile, inline on desktop */}
+          <p className="text-gray-400 text-xs leading-relaxed mb-5">
+            Once logged into DNA Supersystems, navigate directly to the{' '}
+            <strong className="text-white">Zonika Butler</strong> page.
+            Work exclusively on this page — do not modify any other accounts or pages.
+          </p>
           <a
             href={DNA_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full sm:w-auto flex items-center justify-center gap-1.5 px-5 py-3 rounded-xl text-sm font-bold text-white transition-opacity hover:opacity-90 flex-shrink-0 sm:self-center sm:ml-4"
+            className="w-full flex items-center justify-center gap-2 py-3 rounded-xl text-sm font-bold text-white transition-opacity hover:opacity-90"
             style={{ background: ORANGE }}
           >
+            <ExternalLink size={14} />
             Open Platform
-            <ExternalLink size={13} />
           </a>
         </div>
 
