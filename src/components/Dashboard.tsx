@@ -1,7 +1,6 @@
 import { useNavigate } from 'react-router-dom';
-import { POSTERS } from '../data/marketing';
 import {
-  Video, Image, ExternalLink, Megaphone,
+  Video, ExternalLink, Megaphone,
   ArrowRight, FileText, Palette,
 } from 'lucide-react';
 
@@ -9,18 +8,16 @@ const ORANGE = '#F28E2E';
 const DARK   = '#373435';
 
 const STATS = [
-  { icon: Video,        label: 'Videos',       value: 'Soon',  sub: 'Coming soon',            color: ORANGE,    bg: '#FFF7ED' },
-  { icon: Image,        label: 'Posters',       value: POSTERS.length.toString(),      sub: 'Active assets',          color: '#7C3AED', bg: '#F5F3FF' },
-  { icon: ExternalLink, label: 'Canva Links',   value: '1',                            sub: 'More coming soon',       color: '#2563EB', bg: '#EFF6FF' },
-  { icon: FileText,     label: 'Documents',     value: '1',                            sub: 'Agreement on file',      color: '#16A34A', bg: '#F0FDF4' },
+  { icon: Video,        label: 'Videos',      value: 'Soon', sub: 'Coming soon',      color: ORANGE,    bg: '#FFF7ED' },
+  { icon: ExternalLink, label: 'Canva Links', value: '1',    sub: 'More coming soon', color: '#2563EB', bg: '#EFF6FF' },
+  { icon: FileText,     label: 'Documents',   value: '2',    sub: '2 documents',      color: '#16A34A', bg: '#F0FDF4' },
 ];
 
 const QUICK_LINKS = [
-  { icon: Video,        label: 'Property Videos',   sub: 'Coming soon',                          path: '/marketing/videos',  color: ORANGE,    bg: '#FFF7ED' },
-  { icon: Image,        label: 'Property Posters',  sub: `${POSTERS.length} assets ready`,        path: '/marketing/posters', color: '#7C3AED', bg: '#F5F3FF' },
-  { icon: ExternalLink, label: 'Canva Hub',          sub: '1 link — more coming soon',            path: '/marketing/canva',   color: '#2563EB', bg: '#EFF6FF' },
-  { icon: Palette,      label: 'Brand Identity',    sub: '4 brand colours + typography',          path: '/marketing/brand',   color: '#16A34A', bg: '#F0FDF4' },
-  { icon: FileText,     label: 'Documents',         sub: 'Marketing Services Agreement',          path: '/documents',         color: DARK,      bg: '#F5F4F4' },
+  { icon: Video,        label: 'Property Videos', sub: 'Coming soon',               path: '/marketing/videos', color: ORANGE,    bg: '#FFF7ED' },
+  { icon: ExternalLink, label: 'Canva Hub',        sub: '1 link — more coming soon', path: '/marketing/canva',  color: '#2563EB', bg: '#EFF6FF' },
+  { icon: Palette,      label: 'Brand Identity',   sub: '4 brand colours + typography', path: '/marketing/brand', color: '#16A34A', bg: '#F0FDF4' },
+  { icon: FileText,     label: 'Documents',        sub: '2 documents on file',       path: '/documents',        color: DARK,      bg: '#F5F4F4' },
 ];
 
 
@@ -102,7 +99,7 @@ export default function Dashboard() {
             </div>
             <p className="text-white font-bold text-base mb-1">Marketing Hub</p>
             <p className="text-gray-400 text-xs mb-5 leading-relaxed">
-              {POSTERS.length} posters, videos coming soon, and 1 Canva link — more coming soon.
+              Videos coming soon, 1 Canva link available, and 2 documents on file.
             </p>
             <button
               onClick={() => navigate('/marketing')}
@@ -120,7 +117,7 @@ export default function Dashboard() {
             </div>
             <p className="font-bold text-sm mb-1" style={{ color: DARK }}>Agreement Document</p>
             <p className="text-gray-400 text-xs mb-4 leading-relaxed">
-              Marketing Services Agreement — available to download or preview.
+              2 documents on file — available to download.
             </p>
             <button
               onClick={() => navigate('/documents')}

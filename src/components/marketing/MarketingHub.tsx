@@ -1,6 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { Video, Image, Palette, ExternalLink, ArrowRight, Link2 } from 'lucide-react';
-import { POSTERS } from '../../data/marketing';
+import { Video, Palette, ExternalLink, ArrowRight, Link2 } from 'lucide-react';
 
 const ORANGE = '#F28E2E';
 const DARK   = '#373435';
@@ -12,19 +11,8 @@ const QUICK_CARDS = [
     description: 'Walkthroughs, campaigns & aerial footage',
     path: '/marketing/videos',
     count: 'Coming soon',
-    gradient: 'from-orange-500 to-amber-500',
     bg: '#FFF7ED',
     iconColor: ORANGE,
-  },
-  {
-    icon: Image,
-    label: 'Property Posters',
-    description: 'Campaign visuals, brochures & billboards',
-    path: '/marketing/posters',
-    count: `${POSTERS.length} posters`,
-    gradient: 'from-stone-700 to-stone-900',
-    bg: '#F5F4F4',
-    iconColor: DARK,
   },
   {
     icon: Palette,
@@ -32,7 +20,6 @@ const QUICK_CARDS = [
     description: 'Colours, typography & usage guidelines',
     path: '/marketing/brand',
     count: '4 brand colours',
-    gradient: 'from-violet-500 to-purple-700',
     bg: '#F5F3FF',
     iconColor: '#7C3AED',
   },
@@ -42,7 +29,6 @@ const QUICK_CARDS = [
     description: 'All design files, templates & assets',
     path: '/marketing/canva',
     count: '1 link — more coming soon',
-    gradient: 'from-sky-500 to-blue-600',
     bg: '#EFF6FF',
     iconColor: '#2563EB',
   },
@@ -50,7 +36,6 @@ const QUICK_CARDS = [
 
 const STAT_PILLS = [
   { label: 'Videos Coming Soon', value: '—' },
-  { label: 'Posters',            value: POSTERS.length },
   { label: 'Canva Link',         value: 1 },
   { label: 'Properties',         value: 2 },
 ];
