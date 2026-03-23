@@ -7,6 +7,7 @@ import MarketingHub from './components/marketing/MarketingHub';
 import MarketingVideos from './components/marketing/MarketingVideos';
 import CanvaHub from './components/marketing/CanvaHub';
 import BrandIdentity from './components/marketing/BrandIdentity';
+import NotesHub from './components/marketing/NotesHub';
 
 export default function App() {
   return (
@@ -20,6 +21,7 @@ export default function App() {
           <Route path="/marketing/videos"    element={<MarketingVideos />} />
           <Route path="/marketing/canva"     element={<CanvaHub />} />
           <Route path="/marketing/brand"     element={<BrandIdentity />} />
+          <Route path="/marketing/notes"     element={<NotesHub />} />
           <Route path="*"                    element={<Navigate to="/" replace />} />
         </Routes>
       </Layout>

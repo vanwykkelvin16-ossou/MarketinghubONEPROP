@@ -3,7 +3,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import {
   Building2, LayoutDashboard, FolderOpen, Search,
   Menu, X, ChevronRight, ChevronDown, ChevronLeft, Bell, Megaphone,
-  Video, Palette, ExternalLink, Monitor,
+  Video, Palette, ExternalLink, Monitor, BookOpen,
 } from 'lucide-react';
 // Building2 kept for logo icon only
 
@@ -23,6 +23,7 @@ const MARKETING_SUB_NAV = [
   { icon: Video,        label: 'Videos',  path: '/marketing/videos' },
   { icon: ExternalLink, label: 'Canva',   path: '/marketing/canva' },
   { icon: Palette,      label: 'Brand',   path: '/marketing/brand' },
+  { icon: BookOpen,     label: 'Notes',   path: '/marketing/notes' },
 ];
 
 export default function Layout({ children }: LayoutProps) {
